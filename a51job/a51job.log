@@ -1,0 +1,243 @@
+2020-01-30 20:00:23 [scrapy.utils.log] INFO: Scrapy 1.8.0 started (bot: a51job)
+2020-01-30 20:00:23 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.6.9 (default, Nov  7 2019, 10:44:02) - [GCC 8.3.0], pyOpenSSL 19.1.0 (OpenSSL 1.1.1  11 Sep 2018), cryptography 2.1.4, Platform Linux-5.3.0-26-generic-x86_64-with-Ubuntu-18.04-bionic
+2020-01-30 20:00:23 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'a51job', 'NEWSPIDER_MODULE': 'a51job.spiders', 'SPIDER_MODULES': ['a51job.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0'}
+2020-01-30 20:00:23 [scrapy.extensions.telnet] INFO: Telnet Password: 3c6ce6b7dec88c83
+2020-01-30 20:00:23 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2020-01-30 20:00:24 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'a51job.middlewares.A51jobDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-01-30 20:00:24 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-01-30 20:00:24 [scrapy.middleware] INFO: Enabled item pipelines:
+['a51job.pipelines.A51JobPipeline']
+2020-01-30 20:00:24 [scrapy.core.engine] INFO: Spider opened
+2020-01-30 20:00:25 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-01-30 20:00:25 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-01-30 20:00:25 [scrapy.core.scraper] ERROR: Error downloading <GET https://search.51job.com/list/000000,000000,0000,00,9,99,python,2,1.html>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 539, in connect
+    sock = self._connect()
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 596, in _connect
+    raise err
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 584, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/twisted/internet/defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/local/lib/python3.6/dist-packages/scrapy/core/downloader/middleware.py", line 38, in process_request
+    response = yield method(request=request, spider=spider)
+  File "/home/jiangjin/桌面/a51job/a51job/middlewares.py", line 32, in process_request
+    if bf.isContains(request.url):
+  File "/home/jiangjin/桌面/a51job/a51job/tool/bloomfulter.py", line 47, in isContains
+    ret = ret & self.server.getbit(name, loc)
+  File "/usr/local/lib/python3.6/dist-packages/redis/client.py", line 1346, in getbit
+    return self.execute_command('GETBIT', name, offset)
+  File "/usr/local/lib/python3.6/dist-packages/redis/client.py", line 836, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 1073, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 544, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2020-01-30 20:00:25 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-01-30 20:00:25 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/redis.exceptions.ConnectionError': 1,
+ 'elapsed_time_seconds': 0.318,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 1, 30, 12, 0, 25, 628366),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'memusage/max': 58793984,
+ 'memusage/startup': 58793984,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 1, 30, 12, 0, 25, 310366)}
+2020-01-30 20:00:25 [scrapy.core.engine] INFO: Spider closed (finished)
+https://search.51job.com/list/000000,000000,0000,00,9,99,python,2,1.html
+2020-01-31 10:30:03 [scrapy.utils.log] INFO: Scrapy 1.8.0 started (bot: a51job)
+2020-01-31 10:30:03 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.6.9 (default, Nov  7 2019, 10:44:02) - [GCC 8.3.0], pyOpenSSL 19.1.0 (OpenSSL 1.1.1  11 Sep 2018), cryptography 2.1.4, Platform Linux-5.3.0-26-generic-x86_64-with-Ubuntu-18.04-bionic
+2020-01-31 10:30:03 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'a51job', 'NEWSPIDER_MODULE': 'a51job.spiders', 'SPIDER_MODULES': ['a51job.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0'}
+2020-01-31 10:30:03 [scrapy.extensions.telnet] INFO: Telnet Password: 96b24206b7ac9ed7
+2020-01-31 10:30:03 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2020-01-31 10:30:04 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'a51job.middlewares.A51jobDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-01-31 10:30:04 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-01-31 10:30:04 [scrapy.middleware] INFO: Enabled item pipelines:
+['a51job.pipelines.A51JobPipeline']
+2020-01-31 10:30:04 [scrapy.core.engine] INFO: Spider opened
+2020-01-31 10:30:05 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-01-31 10:30:05 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-01-31 10:30:05 [scrapy.core.scraper] ERROR: Error downloading <GET https://search.51job.com/list/000000,000000,0000,00,9,99,python,2,1.html>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 539, in connect
+    sock = self._connect()
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 596, in _connect
+    raise err
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 584, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/twisted/internet/defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/local/lib/python3.6/dist-packages/scrapy/core/downloader/middleware.py", line 38, in process_request
+    response = yield method(request=request, spider=spider)
+  File "/home/jiangjin/桌面/a51job/a51job/middlewares.py", line 32, in process_request
+    if bf.isContains(request.url):
+  File "/home/jiangjin/桌面/a51job/a51job/tool/bloomfulter.py", line 47, in isContains
+    ret = ret & self.server.getbit(name, loc)
+  File "/usr/local/lib/python3.6/dist-packages/redis/client.py", line 1346, in getbit
+    return self.execute_command('GETBIT', name, offset)
+  File "/usr/local/lib/python3.6/dist-packages/redis/client.py", line 836, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 1073, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 544, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2020-01-31 10:30:05 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-01-31 10:30:05 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/redis.exceptions.ConnectionError': 1,
+ 'elapsed_time_seconds': 0.342314,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 1, 31, 2, 30, 5, 383081),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'memusage/max': 58961920,
+ 'memusage/startup': 58961920,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 1, 31, 2, 30, 5, 40767)}
+2020-01-31 10:30:05 [scrapy.core.engine] INFO: Spider closed (finished)
+https://search.51job.com/list/000000,000000,0000,00,9,99,python,2,1.html
+2020-02-02 10:30:18 [scrapy.utils.log] INFO: Scrapy 1.8.0 started (bot: a51job)
+2020-02-02 10:30:18 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.6.9 (default, Nov  7 2019, 10:44:02) - [GCC 8.3.0], pyOpenSSL 19.1.0 (OpenSSL 1.1.1  11 Sep 2018), cryptography 2.1.4, Platform Linux-5.3.0-28-generic-x86_64-with-Ubuntu-18.04-bionic
+2020-02-02 10:30:18 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'a51job', 'NEWSPIDER_MODULE': 'a51job.spiders', 'SPIDER_MODULES': ['a51job.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0'}
+2020-02-02 10:30:19 [scrapy.extensions.telnet] INFO: Telnet Password: 03cdae73685b06c4
+2020-02-02 10:30:19 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2020-02-02 10:30:22 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'a51job.middlewares.A51jobDownloaderMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-02-02 10:30:22 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-02-02 10:30:23 [scrapy.middleware] INFO: Enabled item pipelines:
+['a51job.pipelines.A51JobPipeline']
+2020-02-02 10:30:23 [scrapy.core.engine] INFO: Spider opened
+2020-02-02 10:30:23 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-02-02 10:30:23 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-02-02 10:30:23 [scrapy.core.scraper] ERROR: Error downloading <GET https://search.51job.com/list/000000,000000,0000,00,9,99,python,2,1.html>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 539, in connect
+    sock = self._connect()
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 596, in _connect
+    raise err
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 584, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/twisted/internet/defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/local/lib/python3.6/dist-packages/scrapy/core/downloader/middleware.py", line 38, in process_request
+    response = yield method(request=request, spider=spider)
+  File "/home/jiangjin/桌面/a51job/a51job/middlewares.py", line 32, in process_request
+    if bf.isContains(request.url):
+  File "/home/jiangjin/桌面/a51job/a51job/tool/bloomfulter.py", line 47, in isContains
+    ret = ret & self.server.getbit(name, loc)
+  File "/usr/local/lib/python3.6/dist-packages/redis/client.py", line 1346, in getbit
+    return self.execute_command('GETBIT', name, offset)
+  File "/usr/local/lib/python3.6/dist-packages/redis/client.py", line 836, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 1073, in get_connection
+    connection.connect()
+  File "/usr/local/lib/python3.6/dist-packages/redis/connection.py", line 544, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to localhost:6379. Connection refused.
+2020-02-02 10:30:23 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-02-02 10:30:23 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/redis.exceptions.ConnectionError': 1,
+ 'elapsed_time_seconds': 0.575194,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 2, 2, 2, 30, 23, 787322),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 10,
+ 'memusage/max': 58585088,
+ 'memusage/startup': 58585088,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 2, 2, 2, 30, 23, 212128)}
+2020-02-02 10:30:23 [scrapy.core.engine] INFO: Spider closed (finished)
+https://search.51job.com/list/000000,000000,0000,00,9,99,python,2,1.html
