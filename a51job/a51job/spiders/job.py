@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from a51job.items import A51JobItem
+from ..items import A51JobItem
 from scrapy.linkextractors import LinkExtractor
 from copy import deepcopy
 class JobSpider(scrapy.Spider):
